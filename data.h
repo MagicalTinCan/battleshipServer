@@ -37,8 +37,31 @@ struct data {
         //std::cout << initalizeCommand;
     }
 
-    void exportData() {
+    void importData() {
         std::fstream DATA(dataFile);
+        std::string textData;
+        int dataLine = 0;
+        while (getline(DATA, textData)) {
+            if (dataLine == 0) {
+                
+            }
+        }
+    }
+
+    void exportData() { //Yes its ugly, yes it can probably be automated, yes I am probably an idiot for writing it this way. But c++ is fighting with me, and this works.
+        std::string saveCommand;
+        saveCommand = "echo " + std::to_string(turn) + " > " + dataFile;
+        system(saveCommand.c_str());
+        saveCommand = "echo " + std::to_string(strikePos[0]) + " >> " + dataFile;
+        system(saveCommand.c_str());
+        saveCommand = "echo " + std::to_string(strikePos[1]) + " >> " + dataFile;
+        system(saveCommand.c_str());
+        saveCommand = "git add " + dataFile;
+        system(saveCommand.c_str());
+        saveCommand = "git commit -m \"Action\" " + localDirectory + gitRemoteName;
+        system(saveCommand.c_str());
+        saveCommand = "git push " + localDirectory + gitRemoteName;
+        system(saveCommand.c_str());
     }
 };
 

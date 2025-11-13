@@ -1,9 +1,6 @@
 import os
 from sys import argv #[0] is directory of terminal... or file... one of em.
 
-os.system("git config --global user.name MagicalTinCan")
-os.system("git config --global user.email caelumcampbell@gmail.com")
-
 directory = ""
 gitDirectory = ""
 gitRemoteName = ""
@@ -25,21 +22,18 @@ if not os.path.exists(directory + "\\" + gitRemoteName):
     os.system(command)
 
 #print(directory + "\\" + gitRemoteName + "\\" + "data.txt")
-'''
+
 if not os.path.exists(directory + "\\" + gitRemoteName + "\\" + "data.txt"):
     blah =  directory + "\\" + gitRemoteName
-    command = "type nul> " + blah
-    print(command)
+    command = "echo > " + blah
+    #print(command)
     os.system(command)
-'''
-    '''
     command = "git add " + blah + "\\" + "data.txt"
-    print(command)
+    #print(command)
     os.system(command)                   #os.system breaks if you just shove the text from command directly in, dunno why
     command = "git commit -m \"Action\" " + blah
-    print(command)
+    #print(command)
     os.system(command)
     command = "git push " + blah
-    print(command)
+    #print(command)
     os.system(command)
-    '''
